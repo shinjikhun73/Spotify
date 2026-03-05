@@ -22,7 +22,7 @@ class AppSettingsState extends ChangeNotifier {
   Future<void> changeTheme(ThemeColor themeColor) async {
     if (_appSettings == null) return;
     _appSettings = _appSettings!.copyWith(themeColor: themeColor);
-
+    await repository.save(_appSettings!);
     notifyListeners();
   }
 }
